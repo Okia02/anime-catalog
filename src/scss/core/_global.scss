@@ -1,0 +1,9 @@
+body {
+  background-color: #000;
+  color: $stColor;
+  line-height: 1.5;
+}
+
+.btn {
+  @include btn;
+}
