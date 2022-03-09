@@ -3,13 +3,18 @@
 function renderResults() {
   searchResults.innerHTML = "";
   for (const anime of animes) {
-    const animeInFav = favAnimes.find((fav) => fav.mal_id === anime.mal_id);
+    const animeInFav = favAnimes.find(
+      (fav) =>
+        fav.mal_id === anime.mal_id
+    );
     let favAdd = "";
-    animeInFav !== undefined ? (favAdd = "fav") : (favAdd = "");
+    animeInFav !== undefined
+      ? (favAdd = "fav")
+      : (favAdd = "");
     let airingAnime =
       anime.airing === true
-        ? `<a class='js-airing' href='${anime.url}'>Más detalles</a>`
-        : `<p class='js-not-airing'>No se está transmitiendo</p>`;
+        ? `<a class='js-airing' href='${anime.url}'>More details</a>`
+        : `<p class='js-not-airing'>Not airing</p>`;
     searchResults.innerHTML += `<li class='li-element js-li-element ${favAdd}' id='${
       anime.mal_id
     }'><img class='anime-img' src='${
@@ -24,7 +29,11 @@ function renderResults() {
 
 function renderFavResults() {
   favResults.innerHTML = "";
-  for (let i = 0; i < favAnimes.length; i++) {
+  for (
+    let i = 0;
+    i < favAnimes.length;
+    i++
+  ) {
     const favAnime = favAnimes[i];
     favResults.innerHTML += `<li class='li-element js-li-element' id='${
       favAnime.mal_id
